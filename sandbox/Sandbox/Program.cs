@@ -8,6 +8,13 @@ class Program
         /* This is a block comment
         you can add multiple lines to the comment
         and close it with */
-        Console.WriteLine("Hello Sandbox World!");
+        // Console.WriteLine("Hello Sandbox World!");
+
+
+        for(int i=0; i<=65; i++)
+        {
+            long x = (long)Math.Pow(2,i);
+            Console.WriteLine($"2^{i}: {x}");
+        }
     }
 }
