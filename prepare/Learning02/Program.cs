@@ -18,8 +18,13 @@ class Program
         job2._startYear = 2020;
         job2._endYear = 2024;
         
-        // Display both jobs
-        job1.Display();
-        job2.Display();
+        // Instantiate and initialize the resume
+        Resume myResume = new Resume();
+        myResume._name = "Jayden Anderson";
+        myResume._jobs.Add(job1);
+        myResume._jobs.Add(job2);
+
+        // Display the full resume
+        myResume.Display();
     }
 }
