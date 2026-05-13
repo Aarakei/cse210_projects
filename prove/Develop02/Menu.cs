@@ -1,23 +1,33 @@
 class Menu
 {
-    List<string> _menuOptions = ["1. Write",
+    static List<string> _menuOptions = ["1. Write",
                                 "2. Display",
                                 "3. Load",
                                 "4. Save",
                                 "5. Quit"];
 
-    public void Display()
+    public static void Display()
     {
         Console.WriteLine("Please select one of the following options:");
-        foreach(string option in _menuOptions)
+        foreach(string option in Menu._menuOptions)
         {
             Console.WriteLine(option);
         }
     }
 
-    public string GetUserInput(string prompt = " > ")
+    public static string GetUserInput(string prompt = "")
     {
-        Console.Write(prompt);
+        if(prompt != "")
+        {
+            Console.WriteLine(prompt);
+        }
+
+        Console.Write(" > ");
         return Console.ReadLine();
+    }
+
+    public static void ShowUser(string message)
+    {
+        Console.WriteLine(message);
     }
 }
