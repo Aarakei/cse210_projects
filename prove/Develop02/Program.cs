@@ -1,5 +1,9 @@
 using System;
 
+/*
+The largest change I made to go above the requirements of this project was to abstract all of the
+input/output into the menu class so that any future changes to the input/output method would be much easier to make.
+*/
 class Program
 {
     static void Main(string[] args)
