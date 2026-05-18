@@ -69,5 +69,7 @@ class Journal
         {
             entry.Display();
         }
+        // White space
+        Menu.ShowUser();
     }
 }

@@ -23,11 +23,14 @@ class Menu
         }
 
         Console.Write(" > ");
-        return Console.ReadLine();
+        string response = Console.ReadLine();
+
+        Console.WriteLine();
+        return response;
     }
 
-    public static void ShowUser(string message)
+    public static void ShowUser(string message = "")
     {
-        Console.WriteLine(message);
+        Console.WriteLine($"\n{message}");
     }
 }

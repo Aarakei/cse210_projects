@@ -8,7 +8,9 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.WriteLine();
         Console.WriteLine("Welcome to your Journal Program!");
+        Console.WriteLine();
 
         Journal journal = new Journal();
 
@@ -46,7 +48,7 @@ class Program
                 // Quit
                 case 5:
                     exit = true;
-                    Menu.ShowUser("Thank you for using the Journal Program!");
+                    Menu.ShowUser("Thank you for using the Journal Program!\n");
                     break;
             }
         }
