@@ -63,6 +63,11 @@ class Scripture
         return false;
     }
 
+    public string GetReference()
+    {
+        return _reference.GetReference();
+    }
+
     public void Display()
     {
         _reference.Display();
