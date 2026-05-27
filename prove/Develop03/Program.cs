@@ -5,6 +5,11 @@ class Program
     static void Main(string[] args)
     {
         Scripture scripture = new Scripture("Proverbs",3,5,6,"Trust in the Lord with all thine heart and lean not unto thine own understanding; in all thy ways acknowledge him and he shall direct thy paths.");
+        MemorizeScripture(scripture);
+    }
+
+    static void MemorizeScripture(Scripture scripture)
+    {
         string response = "";
 
         while(response.ToLower() != "q")
@@ -29,7 +34,7 @@ class Program
                 scripture.HideWords();
             } else
             {
-                // Quit the program if the scripture is empty
+                // Quit the memorizer if the scripture is empty
                 return;
             }
         }
