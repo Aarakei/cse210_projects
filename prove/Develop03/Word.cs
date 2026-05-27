@@ -23,4 +23,9 @@ class Word
 
         _word = hiddenWord;
     }
+
+    public void Display()
+    {
+        Console.Write($"{GetWord()} ");
+    }
 }

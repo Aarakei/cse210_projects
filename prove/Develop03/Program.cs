@@ -4,11 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
+        Scripture scripture = new Scripture("Proverbs",3,5,6,"Trust in the Lord with all thine heart and lean not unto thine own understanding; in all thy ways acknowledge him and he shall direct thy paths.");
         string response = "";
-        Reference romans = new Reference("Romans",8,11);
-        Reference proverbs = new Reference("Proverbs",3,5,6);
-        Word hello = new Word("hello");
-        Word goodbye = new Word("goodbye");
 
         while(response.ToLower() != "q")
         {
@@ -18,26 +15,23 @@ class Program
             // Print context
             Console.WriteLine("Enter 'q' to quit, press enter to remove words:\n");
 
-            // TODO: print the scripture
-            Console.WriteLine("Proverbs 3:5-6: Trust in the Lord with all thine heart and lean not unto thine own understanding; in all thy ways acknowledge him and he shall direct thy paths.");
-            Console.WriteLine(romans.GetReference());
-            Console.WriteLine(proverbs.GetReference());
-            Console.WriteLine($"{hello.GetWord()} {goodbye.GetWord()}");
+            // print the scripture
+            scripture.Display();
             Console.WriteLine();
-            
-            // TODO: hide a few random words
-            if(response == "h")
-            {
-                hello.Hide();
-            }
-            if(response == "g")
-            {
-                goodbye.Hide();
-            }
             
             // Get continue/quit input from user
             Console.Write(" > ");
             response = Console.ReadLine();
+
+            // hide a few random words
+            if (scripture.HasWordsRemaining())
+            {
+                scripture.HideWords();
+            } else
+            {
+                // Quit the program if the scripture is empty
+                return;
+            }
         }
     }
 }

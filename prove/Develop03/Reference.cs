@@ -17,4 +17,8 @@ class Reference
         return _referenceString;
     }
 
+    public void Display()
+    {
+        Console.WriteLine(_referenceString);
+    }
 }
