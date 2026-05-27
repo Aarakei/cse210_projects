@@ -19,7 +19,7 @@ class Program
             Console.WriteLine();
             
             // TODO: hide a few random words
-
+            
             // Get continue/quit input from user
             Console.Write(" > ");
             response = Console.ReadLine();
