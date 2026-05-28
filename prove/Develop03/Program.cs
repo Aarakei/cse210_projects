@@ -15,15 +15,14 @@ class Program
             // inform the user about the correct response type if the previous input was invalid
             if (response == -1)
             {
-                Console.WriteLine();
                 Console.WriteLine("Invalid input. Please enter a number corresponding to one of the menu options.");
                 Console.WriteLine();
-                Console.WriteLine("  > ");
+                Console.Write("  > ");
             }
 
             // validate that the user's response can be converted to an integer
             string input = Console.ReadLine();
-            if (input.All(char.IsDigit))
+            if (input.All(char.IsDigit) && input != "")
             {
                 response = int.Parse(input);
             }
@@ -43,6 +42,10 @@ class Program
             if (scripture != null)
             {
                 MemorizeScripture(scripture);
+            }
+            else
+            {
+                response = -1;
             }
 
         }
