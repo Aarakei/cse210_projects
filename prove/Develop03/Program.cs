@@ -80,9 +80,7 @@ class Program
 
     static void MemorizeScripture(Scripture scripture)
     {
-        string response = "";
-
-        while(response.ToLower() != "q")
+        while(true)
         {
             // Clear the screen
             Console.Clear();
@@ -96,16 +94,18 @@ class Program
             
             // Get continue/quit input from user
             Console.Write(" > ");
-            response = Console.ReadLine();
+            string response = Console.ReadLine().ToLower();
 
             // hide a few random words
-            if (scripture.HasWordsRemaining())
-            {
-                scripture.HideWords();
-            } else
+            if (!scripture.HasWordsRemaining() || response == "q")
             {
                 // Quit the memorizer if the scripture is empty
+                scripture.ShowAllWords();
                 return;
+            }
+            else
+            {
+                scripture.HideWords();
             }
         }
     }

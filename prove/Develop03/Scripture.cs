@@ -53,6 +53,18 @@ class Scripture
         }
     }
 
+    public void ShowAllWords()
+    {
+        _shownWordIndices.Clear();
+        int i = 0;
+        foreach(Word word in _words)
+        {
+            word.Show();
+            _shownWordIndices.Add(i);
+            i++;
+        }
+    }
+
     public bool HasWordsRemaining()
     {
         if (_shownWordIndices.Count > 0)

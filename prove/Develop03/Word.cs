@@ -1,27 +1,39 @@
 class Word
 {
     private string _word;
+    private bool _isHidden;
 
     public Word(string word)
     {
         _word = word;
+        _isHidden = false;
     }
 
     public string GetWord()
     {
+        if (_isHidden)
+        {
+            string hiddenWord = "";
+
+            foreach(char c in _word)
+            {
+                hiddenWord += "_";
+            }
+
+            return hiddenWord;
+        }
+
         return _word;
     }
 
     public void Hide()
     {
-        string hiddenWord = "";
+        _isHidden = true;
+    }
 
-        foreach (char c in _word)
-        {
-            hiddenWord += "_";
-        }
-
-        _word = hiddenWord;
+    public void Show()
+    {
+        _isHidden = false;
     }
 
     public void Display()
