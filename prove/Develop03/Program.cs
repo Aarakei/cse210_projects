@@ -43,7 +43,7 @@ class Program
             {
                 MemorizeScripture(scripture);
             }
-            else
+            else if (response != 0)
             {
                 response = -1;
             }
@@ -57,10 +57,40 @@ class Program
         {
             Console.Clear();
         }
+
         Console.WriteLine(prompt);
         Console.WriteLine();
         Console.Write("  > ");
+
         return Console.ReadLine();
+    }
+
+    static int GetInt(string prompt, bool clearScreen = true)
+    {
+        if(clearScreen)
+        {
+            Console.Clear();
+        }
+
+        while(true)
+        {
+            string input = PromptUser(prompt, false);
+
+            // Make sure the user input a number
+            if (input.All(char.IsNumber) && input != "")
+            {
+                return int.Parse(input);
+            }
+
+            // If the input was invalid
+            if (clearScreen)
+            {
+                Console.Clear();
+            }
+            Console.WriteLine("Invalid input. Please input a number.");
+            Console.WriteLine();
+            
+        }
     }
 
     static Scripture GetScriptureFromUser()
@@ -69,14 +99,15 @@ class Program
         {
             string book = PromptUser("What book is this scripture in?");
 
-            int chapter = int.Parse(PromptUser("What chapter is this scripture in?"));
+            int chapter = GetInt("What chapter is this scripture in?");
 
-            int startVerse = int.Parse(PromptUser("What is the first verse of the scripture reference?"));
+            int startVerse = GetInt("What is the first verse of the scripture reference?");
 
-            int endVerse = int.Parse(PromptUser("What is the last verse of the scripture reference?"));
+            int endVerse = GetInt("What is the last verse of the scripture reference?");
             
             string passage = PromptUser("What is the scripture passage?");
 
+            // Use the correct constructor
             Scripture scripture;
             if (startVerse == endVerse)
             {
@@ -87,6 +118,7 @@ class Program
                 scripture = new Scripture(book, chapter, startVerse, endVerse, passage);
             }
 
+            // Verify the scripture the user input was correct
             Console.Clear();
             scripture.Display();
             Console.WriteLine();
