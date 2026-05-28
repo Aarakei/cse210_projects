@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-
 class Scripture
 {
     private Reference _reference;

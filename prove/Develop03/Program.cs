@@ -1,28 +1,45 @@
-using System;
-using System.Net;
-using System.Reflection.Metadata.Ecma335;
-
 class Program
 {
     static void Main(string[] args)
     {
+        // initialize the menu and response loop
         Menu menu = new Menu();
         int response = 1;
+
         while(response != 0)
         {
+            //Refresh the screen with the menu
             Console.Clear();
-
             menu.ShowMenu();
+            
+            // inform the user about the correct response type if the previous input was invalid
+            if (response == -1)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Invalid input. Please enter a number corresponding to one of the menu options.");
+                Console.WriteLine();
+                Console.WriteLine("  > ");
+            }
 
-            response = int.Parse(Console.ReadLine());
+            // validate that the user's response can be converted to an integer
+            string input = Console.ReadLine();
+            if (input.All(char.IsDigit))
+            {
+                response = int.Parse(input);
+            }
+            else
+            {
+                response = -1;
+            }
 
+            // get the correct scripture from the menu (will return null if response was 0 or invalid)
             Scripture scripture = (response) switch
             {
-                0 => null,
                 1 => menu.AddScripture(GetScriptureFromUser()),
                 _ => menu.GetScripture(response)
             };
 
+            // don't try to memorize a scripture that doesn't exist
             if (scripture != null)
             {
                 MemorizeScripture(scripture);
@@ -42,6 +59,7 @@ class Program
         Console.Write("  > ");
         return Console.ReadLine();
     }
+
     static Scripture GetScriptureFromUser()
     {
         while (true)
