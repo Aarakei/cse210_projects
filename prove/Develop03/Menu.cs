@@ -25,12 +25,14 @@ class Menu
 
     public Scripture GetScripture(int option)
     {
-        return _scriptures[option - 2];
-    }
-
-    public int GetMenuLength()
-    {
-        return _scriptures.Count();
+        if (option >= 2 && option < _scriptures.Count() + 2)
+        {
+            return _scriptures[option - 2];
+        }
+        else
+        {
+            return null;
+        }
     }
 
     public void ShowMenu()
