@@ -19,7 +19,10 @@ class Menu
 
     public Scripture AddScripture(Scripture scripture)
     {
-        _scriptures.Add(scripture);
+        if (scripture != null)
+        {
+            _scriptures.Add(scripture);
+        }
         return scripture;
     }
 
