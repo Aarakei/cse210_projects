@@ -49,6 +49,10 @@ class Program
             }
 
         }
+
+        Console.Clear();
+        Console.WriteLine("Thank you for using the scripture memorization program!");
+        Console.WriteLine();
     }
 
     static string PromptUser(string prompt = "", bool clearScreen = true)

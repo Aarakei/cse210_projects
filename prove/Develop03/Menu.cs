@@ -40,7 +40,7 @@ class Menu
 
     public void ShowMenu()
     {
-        Console.WriteLine("Choose an option:");
+        Console.WriteLine("Choose a scripture to memorize:");
         Console.WriteLine();
 
         int i = 2;
