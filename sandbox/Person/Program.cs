@@ -2,6 +2,7 @@
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Welcome to Person.cs");
+        Person myPerson = new Person("Bob", "Roberts", 57, 198);
+        Console.WriteLine(myPerson.GetPersonInformation());
     }
 }
