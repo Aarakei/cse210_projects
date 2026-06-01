@@ -4,6 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Learning04 World!");
+        MathAssignment myMathAssignment = new MathAssignment("2.1", "1-21", "Bob Bobbertson", "Differential Equations");
+        Console.WriteLine(myMathAssignment.GetSummary());
+        Console.WriteLine(myMathAssignment.GetHomeworkList());
     }
 }
