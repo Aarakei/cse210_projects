@@ -8,8 +8,13 @@
         Police myPoliceman = new Police("gun", "Robert", "Bob", 43, 187);
         Console.WriteLine(myPoliceman.GetPersonInformation());
         Console.WriteLine(myPoliceman.GetPolicemanInformation());
+        myPoliceman.ChangeWeight(-10);
+        Console.WriteLine(myPoliceman.GetPolicemanInformation());
 
         Doctor myDoctor = new Doctor("PhD", "Bob", "Chop", 43, 186);
         Console.WriteLine(myDoctor.GetDoctorInformation());
+        myDoctor.ChangeWeight(14);
+        Console.WriteLine(myDoctor.GetDoctorInformation());
+
     }
 }
