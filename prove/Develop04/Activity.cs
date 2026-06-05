@@ -10,7 +10,7 @@ class Activity
         _description = description;
     }
 
-    public void DisplayEnterMessage()
+    public int DisplayEnterMessage()
     {
         Console.Clear();
         Console.WriteLine($"Welcome to the {_name} activity.");
@@ -22,6 +22,7 @@ class Activity
         Console.Write("  > ");
 
         _duration = int.Parse(Console.ReadLine());
+        return _duration;
     }
 
     public void DisplayExitMessage()
