@@ -54,6 +54,20 @@ class Activity
 
         Console.Write("\b ");
     }
+    
+    public void Countdown(string message, int duration)
+    {
+        Console.Write(message);
+        Console.Write(" ");
+        DateTime finishTime = DateTime.Now.AddSeconds(duration);
+        while(DateTime.Now < finishTime)
+        {
+            Console.Write($"\b{duration}");
+            duration--;
+            Thread.Sleep(1000);
+        }
+        Console.WriteLine("\b ");
+    }
 
     public string GetRandomPrompt(List<string> prompts)
     {
