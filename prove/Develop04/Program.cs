@@ -8,6 +8,7 @@ class Program
         Activity myActivity = new Activity("Generic_Activity", "This is a generic activity, watch this fun little spinner");
         Breathing myBreathing = new Breathing();
         Reflection myReflection = new Reflection();
+        Listing myListing = new Listing();
 
 
         // myActivity.DisplayEnterMessage();
@@ -19,6 +20,8 @@ class Program
 
         // myBreathing.RunActivity();
 
-        myReflection.RunActivity();
+        // myReflection.RunActivity();
+
+        myListing.RunActivity();
     }
 }
