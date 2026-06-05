@@ -2,8 +2,17 @@ using System;
 
 class Program
 {
+
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop04 World!");
+        Activity myActivity = new Activity("Generic_Activity", "This is a generic activity, watch this fun little spinner");
+
+        myActivity.DisplayEnterMessage();
+
+        Console.Clear();
+        myActivity.DisplaySpinner(7);
+        
+        myActivity.DisplayExitMessage();
+
     }
 }
