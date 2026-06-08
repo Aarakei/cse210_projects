@@ -9,7 +9,11 @@ class Breathing : Activity
     {
         int duration = DisplayEnterMessage();
         Console.Clear();
+        Console.CursorVisible = false;
 
+        Countdown("Get ready to breath in ", 5);
+
+        Console.Clear();
         DateTime finishTime = DateTime.Now.AddSeconds(duration);
         while(DateTime.Now < finishTime)
         {

@@ -28,6 +28,7 @@ class Activity
     public void DisplayExitMessage()
     {
         Console.Clear();
+        Console.CursorVisible = false;
 
         Console.Write("Well Done! ");
         DisplaySpinner(3);
@@ -35,6 +36,7 @@ class Activity
         Console.WriteLine("\n");
         Console.Write($"You have completed {_duration} seconds of the {_name} activity. ");
         DisplaySpinner(3);
+        Console.CursorVisible = true;
     }
 
     public void DisplaySpinner(int duration)
