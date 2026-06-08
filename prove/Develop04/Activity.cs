@@ -42,16 +42,16 @@ class Activity
     public void DisplaySpinner(int duration)
     {
         int spinnerIndex = 0;
-        string[] spinner = ["-","\\","|","/"];
+        string animationString = "-\\|/";
         Console.Write(" ");
 
         DateTime finishTime = DateTime.Now.AddSeconds(duration);
         
         while(DateTime.Now < finishTime)
         {
-            Console.Write($"\b{spinner[spinnerIndex]}");
-            spinnerIndex = (spinnerIndex + 1) % 4;
-            Thread.Sleep(500);
+            Console.Write($"\b{animationString[spinnerIndex]}");
+            spinnerIndex = (spinnerIndex + 1) % animationString.Length;
+            Thread.Sleep(250);
         }
 
         Console.Write("\b ");
