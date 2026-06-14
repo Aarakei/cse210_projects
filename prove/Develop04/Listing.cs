@@ -1,14 +1,14 @@
 class Listing : Activity
 {
-    List<string> _prompts;
+    List<FlaggedString> _prompts;
 
     public Listing() : base("Listing", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.")
     {
-        _prompts = ["Who are people that you appreciate?",
-                    "What are personal strengths of yours?",
-                    "Who are people that you have helped this week?",
-                    "When have you felt the Holy Ghost this month?",
-                    "Who are some of your personal heroes?",
+        _prompts = [new FlaggedString("Who are people that you appreciate?"),
+                    new FlaggedString("What are personal strengths of yours?"),
+                    new FlaggedString("Who are people that you have helped this week?"),
+                    new FlaggedString("When have you felt the Holy Ghost this month?"),
+                    new FlaggedString("Who are some of your personal heroes?"),
                     ];
     }
 
@@ -19,7 +19,14 @@ class Listing : Activity
 
         Console.Clear();
         Console.CursorVisible = false;
-        Console.WriteLine(GetRandomPrompt(_prompts));
+
+        string prompt = GetRandomPrompt(_prompts);
+        if (prompt == "")
+        {
+            return;
+        }
+
+        Console.WriteLine(prompt);
         Console.WriteLine();
         Countdown("You may begin listing in ", 5);
 
@@ -37,6 +44,8 @@ class Listing : Activity
             Console.ReadLine();
             numItemsListed++;
         }
+
+        ResetFlags(_prompts);
 
         Console.CursorVisible = false;
         Console.Clear();

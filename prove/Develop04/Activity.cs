@@ -71,9 +71,33 @@ class Activity
         Console.WriteLine("\b ");
     }
 
-    public string GetRandomPrompt(List<string> prompts)
+    public string GetRandomPrompt(List<FlaggedString> prompts)
     {
         Random integerGenerator = new Random();
-        return prompts[integerGenerator.Next(0,prompts.Count)];
+
+        List<int> availableIndices = new List<int>();
+        for(int i = 0; i < prompts.Count(); i++)
+        {
+            if (prompts[i].GetIsUsed() == false)
+            {
+                availableIndices.Add(i);
+            }
+        }
+
+        if (availableIndices.Count() == 0)
+        {
+            return ""; // empty string will be used to determine when all prompts have been used
+        }
+
+        int promptIndex = availableIndices[integerGenerator.Next(0,availableIndices.Count)];
+        return prompts[promptIndex].GetString();
+    }
+
+    public void ResetFlags(List<FlaggedString> flaggedStrings)
+    {
+        foreach (FlaggedString flaggedString in flaggedStrings)
+        {
+            flaggedString.ResetFlag();
+        }
     }
 }

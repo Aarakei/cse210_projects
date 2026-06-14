@@ -16,7 +16,27 @@ class Menu
 
     public int ParseMenu()
     {
-        Console.Write(_menu);
-        return int.Parse(Console.ReadLine());
+        bool isValidInput = true;
+
+        while(true) {
+
+            Console.Write(_menu);
+
+            if (isValidInput == false)
+            {
+                Console.WriteLine("\n\nInvalid input. Please input a number corresponding to one of the menu options.");
+                Console.Write("  > ");
+            }
+
+            string response = Console.ReadLine();
+            if (response.All(char.IsDigit))
+            {
+                return int.Parse(response);
+            }
+
+            isValidInput = false;
+            Console.Clear();
+        }
+        
     }
 }
