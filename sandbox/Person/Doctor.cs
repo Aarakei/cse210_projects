@@ -11,4 +11,9 @@ class Doctor : Person
     {
         return $"Education: {_degree}, {base.GetPersonInformation()}";
     }
+
+    public override double GetSalary()
+    {
+        return 250000;
+    }
 }

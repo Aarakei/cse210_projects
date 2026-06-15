@@ -1,4 +1,4 @@
-class Person
+abstract class Person
 {
     private string _firstName;
     private string _lastName;
@@ -48,4 +48,6 @@ class Person
 
         return true;
     }
+
+    public abstract double GetSalary();
 }
