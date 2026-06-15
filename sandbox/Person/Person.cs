@@ -13,13 +13,39 @@ class Person
         _weight = weight;
     }
 
-    public string GetPersonInformation()
+    public virtual string GetPersonInformation()
     {
         return $"Name: {_firstName} {_lastName}, age: {_age}, weight: {_weight}";
     }
 
     public void ChangeWeight(int change)
     {
-        _weight += change;
+        SetWeight(_weight + change);
+    }
+
+    public bool SetAge(int age)
+    {
+        _age = age;
+
+        if (age < 0 || age > 120)
+        {
+            _age = 0;
+            return false;
+        }
+
+        return true;
+    }
+
+    public bool SetWeight(int weight)
+    {
+        _weight = weight;
+
+        if (weight < 0 || weight > 500)
+        {
+            _weight = 0;
+            return false;
+        }
+
+        return true;
     }
 }
