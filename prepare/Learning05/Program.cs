@@ -5,15 +5,28 @@ class Program
     static void Main(string[] args)
     {
         Square mySquare = new Square("red", 4);
-        Console.WriteLine($"Color: {mySquare.GetColor()}");
-        Console.WriteLine($"Area: {mySquare.GetArea()}");
+        // Console.WriteLine($"Color: {mySquare.GetColor()}");
+        // Console.WriteLine($"Area: {mySquare.GetArea()}");
 
         Rectangle myRectangle = new Rectangle("blue", 5, 4);
-        Console.WriteLine($"Color: {myRectangle.GetColor()}");
-        Console.WriteLine($"Area: {myRectangle.GetArea()}");
+        // Console.WriteLine($"Color: {myRectangle.GetColor()}");
+        // Console.WriteLine($"Area: {myRectangle.GetArea()}");
 
         Circle myCircle = new Circle("green", 3);
-        Console.WriteLine($"Color: {myCircle.GetColor()}");
-        Console.WriteLine($"Area: {myCircle.GetArea()}");
+        // Console.WriteLine($"Color: {myCircle.GetColor()}");
+        // Console.WriteLine($"Area: {myCircle.GetArea()}");
+
+        List<Shape> myList = new List<Shape>();
+        myList.Add(mySquare);
+        myList.Add(myRectangle);
+        myList.Add(myCircle);
+
+        Console.WriteLine();
+
+        foreach (Shape shape in myList)
+        {
+            Console.WriteLine($"Color: {shape.GetColor()}");
+            Console.WriteLine($"Area: {shape.GetArea()}\n");
+        }
     }
 }
