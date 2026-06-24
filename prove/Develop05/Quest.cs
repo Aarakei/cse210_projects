@@ -43,7 +43,7 @@ class Quest
 
     public virtual string GetDisplayString()
     {
-        return $"[{(_isCompleted ? "X" : " ")}] {_name}: {_description}";
+        return $"[{(_isCompleted ? "X" : " ")}] Name: {_name}, Description: {_description}, points earned on completion: {_pointValue}";
     }
 
     public int CompleteQuest()
