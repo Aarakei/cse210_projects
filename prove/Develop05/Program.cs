@@ -4,13 +4,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop05 World!");
-        Quest myQuest = new Quest();
-        myQuest.SetName();
-        myQuest.SetDescription();
-        myQuest.SetPointValue();
+        Quest myQuest = new SimpleQuest();
+        int points = 0;
+
+        myQuest.CreateQuest();
         Console.WriteLine(myQuest.GetDisplayString());
-        myQuest.CompleteQuest();
+        Console.WriteLine($"Points: {points}");
+        
+        points += myQuest.RecordEvent();
         Console.WriteLine(myQuest.GetDisplayString());
+        Console.WriteLine($"Points: {points}");
     }
 }
