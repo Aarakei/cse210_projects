@@ -1,6 +1,6 @@
-class SimpleQuest : Quest
+class OneshotQuest : Quest
 {
-    public SimpleQuest() : base ()
+    public OneshotQuest() : base ()
     {
     }
 
