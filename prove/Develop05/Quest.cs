@@ -1,6 +1,5 @@
 abstract class Quest
 {
-    protected string _type;
     protected string _name;
     protected string _description;
     protected int _pointValue;
@@ -9,7 +8,6 @@ abstract class Quest
 
     public Quest()
     {
-        _type = "";
         _name = "";
         _description = "";
         _pointValue = 0;
@@ -21,6 +19,8 @@ abstract class Quest
         _name = name;
         _description = description;
         _pointValue = pointValue;
+        _timesCompleted = 0;
+        _isCompleted = false;
     }
 
     protected void SetName()

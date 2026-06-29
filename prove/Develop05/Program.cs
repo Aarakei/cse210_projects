@@ -52,6 +52,7 @@ class Program
                 newQuest = new OneshotQuest();
                 break;
             case 2: // TODO: Eternal Quest
+                newQuest = new EternalQuest();
                 break;
             case 3: // TODO: Checklist Quest
                 break;
