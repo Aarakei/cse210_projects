@@ -52,6 +52,12 @@ abstract class Quest
         return _pointValue;
     }
 
-    public abstract void CreateQuest();
+    public virtual void CreateQuest()
+    {
+        SetName();
+        SetDescription();
+        SetPointValue();
+    }
+    
     public abstract int RecordEvent();
 }
