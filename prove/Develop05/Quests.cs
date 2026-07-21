@@ -20,6 +20,12 @@ class Quests
 
     public void ListQuests()
     {
+        if (_questList.Count() == 0)
+        {
+            Console.WriteLine("\nYou haven't embarked on any quests. Press 1 to begin your journey!");
+            return;
+        }
+
         Console.WriteLine();
         for (int i=0; i < _questList.Count(); i++)
         {
