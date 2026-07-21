@@ -2,6 +2,7 @@ class Menu
 {
     private string _mainMenu =
     """
+
     Menu Options:
       1. Embark on a New Quest
       2. List Quests
@@ -13,6 +14,7 @@ class Menu
     """;
 
     private string _createQuestMenu = """
+    
     The types of available quests are:
       1. Oneshot Quest
       2. Eternal Quest
@@ -29,6 +31,11 @@ class Menu
     public int ProcessCreateQuestMenu()
     {
         Console.Write(_createQuestMenu);
+        return int.Parse(Console.ReadLine());
+    }
+
+    public static int GetInteger()
+    {
         return int.Parse(Console.ReadLine());
     }
 }

@@ -19,22 +19,27 @@ class ChecklistQuest : Quest
     {
         base.CreateQuest();
         SetTimesToComplete();
+        SetCompletionBonus();
     }
 
     public override int RecordEvent()
     {
-        _timesCompleted++;
-
         if (_isCompleted)
             return 0;
 
-        if (_timesCompleted == _timesToComplete)
+        _timesCompleted++;
+
+        if (_timesCompleted >= _timesToComplete)
         {
             _isCompleted = true;
-            return _completionBonus;
+            return _completionBonus + _pointValue;
         }
 
         return _pointValue;
     }
-        
+
+    public override string GetDisplayString()
+    {
+        return base.GetDisplayString() + $", completion bonus: {_completionBonus}, times to complete: {_timesToComplete}, times completed: {_timesCompleted}";
+    }
 }

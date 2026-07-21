@@ -4,8 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Quest myQuest = null;
-        int points = 0;
+        Quests quests = new Quests();
 
         // myQuest.CreateQuest();
         // Console.WriteLine(myQuest.GetDisplayString());
@@ -19,21 +18,22 @@ class Program
         int response = 0;
         while (response != 6)
         {
+            Console.WriteLine($"\nPoints: {quests.GetPoints()}");
             response = menu.ProcessMainMenu();
             switch (response)
             {
                 case 1: // TODO: Create Quest
-                    myQuest = CreateQuest(menu);
+                    CreateQuest(menu, quests);
                     break;
                 case 2: // TODO: List Quests
-                    if (myQuest != null)
-                        Console.WriteLine(myQuest.GetDisplayString());
+                    quests.ListQuests();
                     break;
                 case 3: // TODO: Save Quests
                     break;
                 case 4: // TODO: Load Quests
                     break;
                 case 5: // TODO: Record Event
+                    quests.RecordEvent();
                     break;
                 default:
                     break;
@@ -41,7 +41,7 @@ class Program
         }
     }
 
-    static Quest CreateQuest(Menu menu)
+    static void CreateQuest(Menu menu, Quests quests)
     {
         Quest newQuest = null;
 
@@ -55,14 +55,16 @@ class Program
                 newQuest = new EternalQuest();
                 break;
             case 3: // TODO: Checklist Quest
+                newQuest = new ChecklistQuest();
                 break;
             default:
-                return null;
+                break;
         }
 
         if (newQuest != null)
+        {
             newQuest.CreateQuest();
-        
-        return newQuest;
+            quests.AddQuest(newQuest);
+        }
     }
 }

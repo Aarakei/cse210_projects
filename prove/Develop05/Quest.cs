@@ -43,11 +43,14 @@ abstract class Quest
 
     public virtual string GetDisplayString()
     {
-        return $"[{(_isCompleted ? "X" : " ")}] Name: {_name}, Description: {_description}, points earned on completion: {_pointValue}";
+        return $"[{(_isCompleted ? "X" : " ")}] Name: {_name}, Description: {_description}, points earned each completion: {_pointValue}";
     }
 
     protected int CompleteQuest()
     {
+        if (_isCompleted)
+            return 0;
+            
         _isCompleted = true;
         return _pointValue;
     }
