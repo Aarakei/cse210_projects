@@ -68,6 +68,6 @@ class ChecklistQuest : Quest
         string completionBonus = _completionBonus.ToString();
         string timesToComplete = _timesToComplete.ToString();
         string timesCompleted = _timesCompleted.ToString();
-        return $"{type}{sep}{name}{sep}{description}{sep}{pointValue}{sep}{isCompleted}{sep}{completionBonus}{sep}{timesToComplete}{sep}{timesCompleted}\n";
+        return $"{type}{sep}{name}{sep}{description}{sep}{pointValue}{sep}{isCompleted}{sep}{completionBonus}{sep}{timesToComplete}{sep}{timesCompleted}";
     }
 }

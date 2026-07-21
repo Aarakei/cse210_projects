@@ -14,7 +14,7 @@ class Menu
     """;
 
     private string _createQuestMenu = """
-    
+
     The types of available quests are:
       1. Oneshot Quest
       2. Eternal Quest
@@ -37,5 +37,11 @@ class Menu
     public static int GetInteger()
     {
         return int.Parse(Console.ReadLine());
+    }
+
+    public static string GetFileName()
+    {
+        Console.Write("\nWhat is the name of the file? ");
+        return Console.ReadLine();
     }
 }

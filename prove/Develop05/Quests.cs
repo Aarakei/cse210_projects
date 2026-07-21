@@ -1,12 +1,16 @@
+using System.Drawing;
+
 class Quests
 {
     private List<Quest> _questList;
     private int _points;
+    private string _fileStringSeparator;
 
     public Quests()
     {
         _questList = new List<Quest>();
         _points = 0;
+        _fileStringSeparator = "~|~";
     }
 
     public int GetPoints()
@@ -57,7 +61,63 @@ class Quests
 
     }
 
+    public void WriteToFile(string filename)
+    {
+        using(StreamWriter outputFile = new StreamWriter(filename))
+        {
+            outputFile.WriteLine($"points{_fileStringSeparator}{_points}");
+            foreach(Quest quest in _questList)
+            {
+                outputFile.WriteLine(quest.CreateFileString(_fileStringSeparator));
+            }
+        }
+    }
 
+    public void ReadFromFile(string filename)
+    {
+        _questList.Clear();
+        string[] lines = System.IO.File.ReadAllLines(filename);
 
-    
+        foreach(string line in lines)
+        {
+            string[] parts = line.Split(_fileStringSeparator);
+            string type = parts[0];
+
+            if (type == "points")
+            {
+                _points = int.Parse(parts[1]);
+                continue;
+            }
+
+            string name = parts[1];
+            string description = parts[2];
+            int pointValue = int.Parse(parts[3]);
+            bool isCompleted;
+            int timesCompleted;
+            switch (type)
+            {
+                case "oneshot":
+                    isCompleted = bool.Parse(parts[4]);
+                    _questList.Add(new OneshotQuest(name,description,pointValue,isCompleted));
+                    break;
+                
+                case "eternal":
+                    timesCompleted = int.Parse(parts[4]);
+                    _questList.Add(new EternalQuest(name,description,pointValue,timesCompleted));
+                    break;
+
+                case "checklist":
+                    isCompleted = bool.Parse(parts[4]);
+                    int completionBonus = int.Parse(parts[5]);
+                    int timesToComplete = int.Parse(parts[6]);
+                    timesCompleted = int.Parse(parts[7]);
+                    _questList.Add(new ChecklistQuest(name,description,pointValue,isCompleted,timesCompleted,timesToComplete,completionBonus));
+                    break;
+                
+                default:
+                    Console.WriteLine($"Couldn't properly parse line {line}");
+                    break;
+            }
+        }
+    }
 }

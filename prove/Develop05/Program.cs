@@ -29,8 +29,10 @@ class Program
                     quests.ListQuests();
                     break;
                 case 3: // TODO: Save Quests
+                    quests.WriteToFile(Menu.GetFileName());
                     break;
                 case 4: // TODO: Load Quests
+                    quests.ReadFromFile(Menu.GetFileName());
                     break;
                 case 5: // TODO: Record Event
                     quests.RecordEvent();

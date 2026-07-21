@@ -32,6 +32,6 @@ class OneshotQuest : Quest
         string description = _description;
         string pointValue = _pointValue.ToString();
         string isCompleted = _isCompleted.ToString();
-        return $"{type}{sep}{name}{sep}{description}{sep}{pointValue}{sep}{isCompleted}\n";
+        return $"{type}{sep}{name}{sep}{description}{sep}{pointValue}{sep}{isCompleted}";
     }
 }

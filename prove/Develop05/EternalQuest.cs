@@ -32,6 +32,6 @@ class EternalQuest : Quest
         string description = _description;
         string pointValue = _pointValue.ToString();
         string timesCompleted = _timesCompleted.ToString();
-        return $"{type}{sep}{name}{sep}{description}{sep}{pointValue}{sep}{timesCompleted}\n";
+        return $"{type}{sep}{name}{sep}{description}{sep}{pointValue}{sep}{timesCompleted}";
     }
 }
