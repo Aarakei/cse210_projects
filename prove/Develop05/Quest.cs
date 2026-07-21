@@ -50,7 +50,7 @@ abstract class Quest
     {
         if (_isCompleted)
             return 0;
-            
+
         _isCompleted = true;
         return _pointValue;
     }
@@ -63,4 +63,5 @@ abstract class Quest
     }
     
     public abstract int RecordEvent();
+    public abstract string CreateFileString(string sep);
 }
